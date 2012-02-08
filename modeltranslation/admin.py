@@ -90,13 +90,17 @@ class TranslationAdmin(admin.ModelAdmin, TranslationAdminBase):
                             for f in field:
                                 if f in trans_opts.fields:
                                     tfields.extend(get_translation_fields(f))
+                                else:
+                                    tfields.extend((f,))
                             # FIXME: Flatten nested tuples as they will break in the
                             # current tabs implementation. Normally we want:
                             # tfields_new.append(tuple(tfields))
-                            tfields_new.extend(tuple(tfields))
+                            tfields_new.append(tuple(tfields))
                         else:
                             if field in trans_opts.fields:
                                 tfields_new.extend(get_translation_fields(field))
+                            else:
+                                tfields_new.extend((field,))
                     dct['fields'] = tuple(tfields_new)
             self.fieldsets = fieldsets_new
 

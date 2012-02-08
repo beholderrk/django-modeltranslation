@@ -116,5 +116,12 @@ var google, django, gettext;
         if ($('body').hasClass('change-form')) {
             createMainSwitch(createTabs());
         }
+
+//        $('div.add-row').live('click', function(){
+//            //alert('aaa');
+//            createMainSwitch(createTabs());
+//        });
     });
 }());
+
+
